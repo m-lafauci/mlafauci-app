@@ -1,0 +1,25 @@
+.navbar {
+    background-color: #e9ecef;
+    top: 0;
+    width: 100%;
+    left: 0;
+    position: fixed;
+    z-index: 99;
+    padding-right: 10px;
+  }
+  
+  .navbar ul li a{
+    color: darkslategray;
+    margin-right: 30px;
+    font-weight: bold;
+  }
+  
+  .navbar ul li a:visited{
+    color:darkslategray;
+  }
+  
+  .navbar ul li a:hover{
+    color: white;
+    background-color: darkslategray;
+    font-weight: bold;
+  }
