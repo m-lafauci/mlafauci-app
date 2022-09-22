@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
-import Title from '../Title';
-import ItemCount from "../ItemCount";
-import ItemList from "../ItemList";
+import React, { useState, useEffect }from "react";
+import ItemDetail from "../ItemDetail";
 import { useParams } from 'react-router-dom';
 
-const products = [
+const product = [
     {"id": 1, "nombreProducto": "BUZO BLOOM", "categoria": "BUZOS", "precio": 10700, "imagen": "../images/buzo1.jpg", "stock": 2},
     {"id": 2, "nombreProducto": "BUZO LIAM", "categoria": "BUZOS", "precio": 13900, "imagen": "../images/buzo2.jpg", "stock": 3},
     {"id": 3, "nombreProducto": "BUZO ROSE", "categoria": "BUZOS", "precio": 16500, "imagen": "../images/buzo3.jpg", "stock": 4},
@@ -47,37 +45,25 @@ const products = [
     {"id": 40, "nombreProducto": "VESTIDO JANICE", "categoria": "VESTIDOS", "precio": 37500, "imagen": "../images/vestido5.jpg", "stock": 2}
 ];
 
-export const ItemListContainer = ({ texto }) => {
+export const ItemDetailContainer = () => {
 
-    const [ data, setData ] = useState([]);
+    const [ data, setData] = useState([]);
 
-    const { categoriaId } = useParams();
+    const { detalleId } = useParams();
 
-    useEffect (() => {
+    useEffect(() => {
         const getData = new Promise(resolve => {
             setTimeout(() => {
-                resolve(products);
+                resolve(product);
             }, 1000);
         });
-        if (categoriaId) {
-            getData.then(res => setData(res.filter(product => product.categoria === categoriaId)));
-        }else{
-            getData.then(res => setData(res));
-        }
-    }, [categoriaId])
-
-    const onAdd = (quantity) => {
-        console.log(`compraste ${quantity} unidades`)
-    }
+        getData.then(res => setData(res.find(product => product.id === parseInt(detalleId))));
+    })
 
     return(
-        <>
-        <Title greeting={texto} />
-        <ItemCount initial={3} stock={5} onAdd={onAdd} />
-        <ItemList data={data} />
-        </>
+        <ItemDetail data={ data } />
 
     );
 }
 
-export default ItemListContainer;
+export default ItemDetailContainer;
