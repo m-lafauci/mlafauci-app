@@ -9,7 +9,7 @@ export const NavBar = () => {
       <nav className="navbar fixed-top navbar-expand-lg mb-4 d-flex align-items-center">
         <div className="container-fluid">
           <div className="navbar-brand">
-            <NavLink className="nav-link" to='/'><img alt="Style" src="./images/style.png" /></NavLink>
+            <NavLink className="nav-link" to='/'><img alt="Style" src="../images/style.png" /></NavLink>
           </div>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -41,10 +41,10 @@ export const NavBar = () => {
               <NavLink className="nav-link" id="navVestidos" to='/categoria/VESTIDOS'>VESTIDOS</NavLink>
               </li>
             </ul>
-          <form id="busquedaNombre" className="d-flex" role="search">
+          {/* <form id="busquedaNombre" className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Buscar artículos..." aria-label="Search" /> 
             <button className="btn btn-primary my-sm-0" type="submit">Buscar</button>
-          </form>
+          </form> */}
           </div>
         </div>
         <NavLink to='cart'><CartWidget /></NavLink>

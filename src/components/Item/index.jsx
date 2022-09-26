@@ -1,9 +1,11 @@
 import './Item.css';
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Item = ( { info }) => {
-    return(
+  
+  return(
     <div className="col-12 ml-5 mb-3 col-md-3">
       <div className="card">
          <Link to={`/detalle/${info.id}`}><img src={info.imagen} className="card-img-top" alt={info.nombreProducto} /></Link>
