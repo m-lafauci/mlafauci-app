@@ -1,8 +1,9 @@
 import React, { useState, useEffect }from "react";
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import ItemDetail from "../ItemDetail";
 import { useParams } from 'react-router-dom';
 
-const product = [
+/* const product = [
     {"id": 1, "nombreProducto": "BUZO BLOOM", "categoria": "BUZOS", "precio": 10700, "imagen": "../images/buzo1.jpg", "stock": 2},
     {"id": 2, "nombreProducto": "BUZO LIAM", "categoria": "BUZOS", "precio": 13900, "imagen": "../images/buzo2.jpg", "stock": 3},
     {"id": 3, "nombreProducto": "BUZO ROSE", "categoria": "BUZOS", "precio": 16500, "imagen": "../images/buzo3.jpg", "stock": 4},
@@ -43,7 +44,7 @@ const product = [
     {"id": 38, "nombreProducto": "VESTIDO CROWN", "categoria": "VESTIDOS", "precio": 15900, "imagen": "../images/vestido3.jpg", "stock": 3},
     {"id": 39, "nombreProducto": "VESTIDO IMMA", "categoria": "VESTIDOS", "precio": 14400, "imagen": "../images/vestido4.jpg", "stock": 4},
     {"id": 40, "nombreProducto": "VESTIDO JANICE", "categoria": "VESTIDOS", "precio": 37500, "imagen": "../images/vestido5.jpg", "stock": 2}
-];
+]; */
 
 export const ItemDetailContainer = () => {
 
@@ -52,13 +53,11 @@ export const ItemDetailContainer = () => {
     const { detalleId } = useParams();
 
     useEffect(() => {
-        const getData = new Promise(resolve => {
-            setTimeout(() => {
-                resolve(product);
-            }, 1000);
-        });
-        getData.then(res => setData(res.find(product => product.id === parseInt(detalleId))));
-    })
+        const querydb = getFirestore();
+        const queryDoc = doc(querydb, 'productos', detalleId)
+        getDoc(queryDoc)
+        .then(res => setData({ id: res.id, ...res.data() }))
+    }, [detalleId])
 
     return(
         <ItemDetail data={ data } />

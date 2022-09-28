@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
 import Title from '../Title';
 import ItemList from "../ItemList";
 import { useParams } from 'react-router-dom';
 
-const products = [
+/* const products = [
     {"id": 1, "nombreProducto": "BUZO BLOOM", "categoria": "BUZOS", "precio": 10700, "imagen": "../images/buzo1.jpg", "stock": 2},
     {"id": 2, "nombreProducto": "BUZO LIAM", "categoria": "BUZOS", "precio": 13900, "imagen": "../images/buzo2.jpg", "stock": 3},
     {"id": 3, "nombreProducto": "BUZO ROSE", "categoria": "BUZOS", "precio": 16500, "imagen": "../images/buzo3.jpg", "stock": 4},
@@ -44,7 +45,7 @@ const products = [
     {"id": 38, "nombreProducto": "VESTIDO CROWN", "categoria": "VESTIDOS", "precio": 15900, "imagen": "../images/vestido3.jpg", "stock": 3},
     {"id": 39, "nombreProducto": "VESTIDO IMMA", "categoria": "VESTIDOS", "precio": 14400, "imagen": "../images/vestido4.jpg", "stock": 4},
     {"id": 40, "nombreProducto": "VESTIDO JANICE", "categoria": "VESTIDOS", "precio": 37500, "imagen": "../images/vestido5.jpg", "stock": 2}
-];
+]; */
 
 export const ItemListContainer = ({ texto }) => {
 
@@ -52,16 +53,16 @@ export const ItemListContainer = ({ texto }) => {
 
     const { categoriaId } = useParams();
 
-    useEffect (() => {
-        const getData = new Promise(resolve => {
-            setTimeout(() => {
-                resolve(products);
-            }, 1000);
-        });
+    useEffect(() => {
+        const querydb = getFirestore();
+        const queryCollection = collection(querydb, 'productos');
         if (categoriaId) {
-            getData.then(res => setData(res.filter(product => product.categoria === categoriaId)));
-        }else{
-            getData.then(res => setData(res));
+            const queryFilter = query(queryCollection, where('categoria', '==', categoriaId))
+            getDocs(queryFilter)
+            .then(res => setData(res.docs.map(product => ({id: product.id, ...product.data() }))))
+        } else {
+            getDocs(queryCollection)
+            .then(res => setData(res.docs.map(product => ({id: product.id, ...product.data() }))))
         }
     }, [categoriaId])
 
