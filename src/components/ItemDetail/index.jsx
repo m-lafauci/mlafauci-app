@@ -33,7 +33,7 @@ export const ItemDetail = ({ data }) => {
                     {
                         goToCart
                         ? <Link to='/cart'><button className='btn btn-success'>Finalizar compra</button></Link>                    
-                        : <ItemCount initial={3} stock={5} onAdd={onAdd} />
+                        : <ItemCount initial={3} stock={data.stock} onAdd={onAdd} />
                     }
                     </div>
                     </div>
