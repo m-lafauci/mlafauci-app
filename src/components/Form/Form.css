@@ -1,0 +1,6 @@
+#containerForm{
+    background-color: #e9ecef;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+}

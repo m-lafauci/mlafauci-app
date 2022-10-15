@@ -1,7 +1,6 @@
-.pCart{
-    font-size: 40px;
-}
-
-.link{
-    font-size: 25px;
+.rounded-pill{
+    background-color: #e9ecef;
+    color: darkslategray;
+    border-style: solid;
+    border-color: darkslategray;
 }

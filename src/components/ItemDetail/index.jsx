@@ -27,13 +27,12 @@ export const ItemDetail = ({ data }) => {
                     <div className="card-body">
                         <h5 className="card-title">{data.nombreProducto}</h5>
                         <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, et in!</p>
-                        <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                     </div>
                     <div className='finalizarCompra'>
                     {
                         goToCart
                         ? <Link to='/cart'><button className='btn btn-success'>Finalizar compra</button></Link>                    
-                        : <ItemCount initial={3} stock={data.stock} onAdd={onAdd} />
+                        : <ItemCount initial={1} stock={data.stock} onAdd={onAdd} />
                     }
                     </div>
                     </div>

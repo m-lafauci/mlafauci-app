@@ -41,10 +41,6 @@ export const NavBar = () => {
               <NavLink className="nav-link" id="navVestidos" to='/categoria/VESTIDOS'>VESTIDOS</NavLink>
               </li>
             </ul>
-          {/* <form id="busquedaNombre" className="d-flex" role="search">
-            <input className="form-control me-2" type="search" placeholder="Buscar artículos..." aria-label="Search" /> 
-            <button className="btn btn-primary my-sm-0" type="submit">Buscar</button>
-          </form> */}
           </div>
         </div>
         <NavLink to='cart'><CartWidget /></NavLink>
