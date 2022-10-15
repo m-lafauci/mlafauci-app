@@ -30,28 +30,31 @@ const Form = ({ handleId }) => {
     const handleTelefono = (e) => setTelefono(e.target.value);
 
     return (
-        <div id="containerForm">
-            
-        <form action="" onSubmit={handleSubmit}>
-            
-            <div >
-            <div className="mb-4">
-                <label for="exampleInputEmail1" className="form-label">Nombre</label>
-                <input type="text" name="nombre" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={nombre} onChange={handleNombre} required />   
-            </div>
-            <div className="mb-4">
-                <label for="exampleInputEmail1" className="form-label">Email</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
-            </div>
-            <div className="mb-4">
-                <label for="exampleInputEmail1" className="form-label">Celular</label>
-                <input type="number" name="telefono" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={telefono} onChange={handleTelefono} required />
-            </div>
-            <button type="submit" className="btn btn-primary btn-lg">Confirmar</button>
-            </div>
-         
-        </form>
-        </div>        
+        <div className="containerForm">
+            <form action="" onSubmit={handleSubmit}>
+                <div>
+                    <div>    
+                        <h4>Ingrese los datos solicitados</h4>
+                        <h4>para confirmar su pedido</h4>
+                        <br />
+                    </div>
+                    <div className="mb-4">
+                        <label for="exampleInputEmail1" className="form-label">Nombre</label>
+                        <input type="text" name="nombre" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={nombre} onChange={handleNombre} required />   
+                    </div>
+                    <div className="mb-4">
+                        <label for="exampleInputEmail1" className="form-label">Email</label>
+                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
+                    </div>
+                    <div className="mb-4">
+                        <label for="exampleInputEmail1" className="form-label">Celular</label>
+                        <input type="number" name="telefono" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={telefono} onChange={handleTelefono} required />
+                    </div>
+                    <button type="submit" className="btn btn-primary btn-lg">Confirmar</button>
+                </div>
+            </form>
+        </div> 
+              
     );
 };
 

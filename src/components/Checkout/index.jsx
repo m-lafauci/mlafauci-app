@@ -11,21 +11,18 @@ const Checkout = () => {
 
     if (orderId) {
         return (
-            <h2>
-                Gracias por tu compra, tu ID de seguimiento es:
-                <br />
-                {' '}
-                <br />
-                <h2><span className="badge rounded-pill">{orderId}</span></h2>
-            </h2>
+            <div>
+                <img src="../images/thanks.png" alt="thank you" />
+                <h4>ID de Pedido:{' '}<h2><span className="badge rounded-pill">{orderId}</span></h2></h4>
+            </div>
         );
     }
 
-    return (
-        <div>
-            <Form handleId={handleId} />
-        </div>
-    );
+        return (
+            <div>
+                <Form handleId={handleId} />
+            </div>
+        );
 };
 
 export default Checkout;

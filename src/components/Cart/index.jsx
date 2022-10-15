@@ -27,8 +27,7 @@ const Cart = () => {
             {cart.map((product) => (<ItemCart key={product.id} product={product} />))}
             <h2><span className="badge rounded-pill">Total de la compra: ${totalPrice()}</span></h2>
             <Link to="/checkout"><button className="btn btn-primary btn-lg">Checkout</button></Link>
-        </>
-        
+        </>  
     );
 }
 

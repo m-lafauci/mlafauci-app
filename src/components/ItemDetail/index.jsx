@@ -1,5 +1,4 @@
 import './ItemDetail.css';
-
 import React, { useState } from "react";
 import { useCartContext } from '../../context/CartContext';
 import ItemCount from "../ItemCount";
@@ -21,7 +20,7 @@ export const ItemDetail = ({ data }) => {
             <div className="card mb-3">
                 <div className="row g-0">
                     <div className="col-md-4">
-                    <img src={data.imagen} className="img-fluid rounded-start" alt="..." />
+                        <img src={data.imagen} className="img-fluid rounded-start" alt="..." />
                     </div>
                     <div className="col-md-8">
                     <div className="card-body">
@@ -39,8 +38,6 @@ export const ItemDetail = ({ data }) => {
                 </div>
             </div>
         </div>
-
-
     );
 }
 
